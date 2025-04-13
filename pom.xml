@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.danielVergara</groupId>
+    <artifactId>demo-selenium-automation-Java-Maven-Docker</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>${project.artifactId}</name>
+    <description>PoC for Selenium UI Automation (Java, Maven, JUnit, Docker)</description>
+    <url>https://github.com/danifern/demo-selenium-automation-Java-Maven-Docker</url> <!-- URL del repo -->
+
+    <properties>
+        <!-- Java Version -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <!-- Codification -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <selenium.version>4.11.0</selenium.version>
+        <junit.jupiter.version>5.10.0</junit.jupiter.version>
+        <webdrivermanager.version>5.5.3</webdrivermanager.version>
+
+        <slf4j.version>2.0.7</slf4j.version> <!-- Simple Logging Facade for Java". It's an abstraction layer or interface for logging.
+        It decouples your application code from any specific logging implementation. You write your code using the SLF4j API,
+        and later you (or someone else) can decide which actual logging library (like Logback, Log4j2,
+        java.util.logging) will handle those requests behind the scenes. This makes your code more flexible.-->
+
+        <logback.version>1.4.11</logback.version> <!--  A concrete logging implementation.
+        What it does: It "plugs into" SLF4j. When your code calls an SLF4j method (like logger.info("User logged in")),
+        SLF4j detects that Logback is available on the classpath and forwards the logging request to Logback.
+        Logback then takes that request and, based on its configuration (usually in an XML file like logback-test.xml), decides:
+        If the message should be logged (based on log levels like DEBUG, INFO, WARN, ERROR). -->
+
+        <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version> <!-- Plugin para ejecutar tests -->
+
+    </properties>
+
+    <dependencies>
+        <!-- Selenium WebDriver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- JUnit 5 / Jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- WebDriverManager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Logging Facade (SLF4j) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Logging Implementation (Logback) -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>test</scope>
+        </dependency>    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Plugin to test execution (Surefire) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
