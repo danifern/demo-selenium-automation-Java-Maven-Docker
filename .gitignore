@@ -1,8 +1,29 @@
-# Compiled class file
-*.class
+# Intellij IDEA specific files (JetBrains IDEs)
+# Covers .idea/ directory and *.iml files
+.idea/
+*.iml
+*.iws
+*.ipr
 
-# Log file
+# Rider specific files
+.idea.solution/
+*.sln.iml
+
+# Mac specific system files
+.DS_Store
+
+# Build Directory (Maven & Gradle)
+target/
+build/
+
+# Log files
+logs/
 *.log
+
+# VM crash logs (already present but good grouping)
+hs_err_pid*
+replay_pid*# Compiled class file
+*.class
 
 # BlueJ files
 *.ctxt

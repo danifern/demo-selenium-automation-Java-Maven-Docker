@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Define where logs will be sent (Appender). In this case, to the console. -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Define the format (layout) of the log messages -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <!--
+                Explanation of the pattern:
+                %d{yyyy-MM-dd HH:mm:ss.SSS}: Timestamp with milliseconds
+                [%thread]: Name of the current thread (useful for parallel execution)
+                %-5level: Log level (DEBUG, INFO, etc.), left-aligned in 5 spaces
+                %logger{36}: Name of the logger (usually the class name), truncated to 36 chars
+                - : Separator
+                %msg: The actual log message
+                %n: Newline character
+            -->
+        </encoder>
+    </appender>
+
+    <!-- Set the default log level for all loggers (e.g., INFO).
+         Change to DEBUG to see more detailed logs, or TRACE for even more. -->
+    <root level="INFO">
+        <!-- Attach the previously defined console appender to the root logger -->
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- You can optionally set specific log levels for certain packages or classes.
+         For example, to get more detailed logs ONLY from Selenium:
+    <logger name="org.openqa.selenium" level="DEBUG"/>
+         Or from your own code:
+    <logger name="com.danielfernandez" level="DEBUG"/>
+     -->
+
+</configuration>
