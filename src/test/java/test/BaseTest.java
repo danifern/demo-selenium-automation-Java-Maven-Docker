@@ -61,11 +61,12 @@ public abstract class BaseTest { // Abstract: cannot be instantiated directly
             log.info("WebDriver instance created and set for thread: {}", Thread.currentThread().getName());
 
             // Basic configurations applied to the driver instance
-            getDriver().manage().window().maximize(); // Maximize browser window
+
+            DriverManager.getDriver().manage().window().maximize(); // Maximize browser window
 
             // Implicit waits are generally discouraged when using explicit waits properly.
             // Set to 0 to rely solely on explicit waits.
-            getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+            DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 
             log.info("WebDriver basic configuration applied.");
 
@@ -82,15 +83,5 @@ public abstract class BaseTest { // Abstract: cannot be instantiated directly
         // Quit the driver and remove from ThreadLocal using DriverManager
         DriverManager.quitDriver();
         log.info("================== WebDriver Teardown Complete ==================");
-    }
-
-    /**
-     * Convenience method to get the driver for the current thread from DriverManager.
-     * Can be used by subclasses if needed, though often interaction happens via Page Objects.
-     *
-     * @return WebDriver instance for the current thread.
-     */
-    protected WebDriver getDriver() {
-        return DriverManager.getDriver();
     }
 }
