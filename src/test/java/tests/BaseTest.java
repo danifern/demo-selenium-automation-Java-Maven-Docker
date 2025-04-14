@@ -24,6 +24,8 @@ public abstract class BaseTest { // Abstract: cannot be instantiated directly
 
     // Default browser, can be overridden by system property
     private static final String DEFAULT_BROWSER = "chrome";
+    private static final String BASE_URL = "https://www.saucedemo.com/"; // Define base URL
+
 
     @BeforeEach // This method runs before each @Test method in subclasses
     void setUp() {
@@ -69,6 +71,13 @@ public abstract class BaseTest { // Abstract: cannot be instantiated directly
             DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 
             log.info("WebDriver basic configuration applied.");
+
+
+            log.info("Navigating to base URL: {}", BASE_URL);
+            DriverManager.getDriver().get(BASE_URL);
+            log.info("Navigation to base URL complete.");
+            DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+
 
         } catch (Exception e) {
             log.error("!!! WebDriver setup failed !!!", e);
