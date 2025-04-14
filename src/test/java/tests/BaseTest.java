@@ -1,4 +1,4 @@
-package test;
+package tests;
 
 import core.DriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.Duration; // For timeouts
+import java.time.Duration;
 
 /**
  * Base class for all UI tests.
